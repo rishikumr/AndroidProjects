@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MissedEvent</string>
+    <string name="appinfo">
+App ini mencatat kejadian panggilan tidak terjawab di log. Dan letakkan notifikasi dengan jumlah total kejadian yang tidak terjawab. Untuk menggunakan layanan fitur ini harus ON.</string>
+    <string name="view_call">Lihat panggilan</string>
+    <string name="view_sms">Lihat SMS</string>
+</resources>

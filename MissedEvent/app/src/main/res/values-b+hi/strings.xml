@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">मिस्ड इवेंट</string>
+    <string name="appinfo">यह ऐप लॉग में मिस्ड कॉल ईवेंट को पंजीकृत करता है और मिस्ड ईवेंट की कुल संख्या के साथ एक अधिसूचना डाल दी इस सुविधा का उपयोग करने के लिए सेवा चालू होना चाहिए।</string>
+    <string name="view_call">कॉल देखें</string>
+    <string name="view_sms">एसएमएस देखें</string>
+</resources>

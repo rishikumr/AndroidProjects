@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.rishikumar.contactmanager.MainActivity">
+
+    <item
+        android:id="@+id/addName"
+        android:title="Add Contact" />
+    <item
+        android:id="@+id/deleteAll"
+        android:title="Delete Contact"/>
+    <item
+        android:id="@+id/app_bar_switch"
+        android:enabled="true"
+        android:title="Sort by"
+        app:actionLayout="@layout/switch_item" >
+        <menu >
+            <item
+                android:id="@+id/byname"
+                android:title="By Name" />
+            <item
+                android:id="@+id/bynumber"
+                android:title="By Number"/>
+        </menu>
+    </item>
+
+</menu>
+

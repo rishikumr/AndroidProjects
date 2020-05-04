@@ -1,0 +1,36 @@
+
+                
+									// ***************************Writing into the File ****************************************
+									try{
+										ostream =  openFileOutput("HelloWOrldStorage", Context.MODE_PRIVATE);
+										ostream.write(ed.getText().toString().getBytes());
+										ostream.write(25235);
+										ostream.close();
+
+									} catch (FileNotFoundException e) {
+										e.printStackTrace();
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+									catch (Exception e){}
+
+
+				
+				
+				
+												
+									 String neuText = "";
+								  // ***************************Reading from the File ****************************************
+
+												try {
+													istream = openFileInput("HelloWOrldStorage");
+													while (istream.available()>1) {
+
+													 neuText= neuText+(char)istream.read();
+													}
+												} catch (IOException e) {
+													e.printStackTrace();
+												}
+											  
+												tv.setText(neuText);
+										   

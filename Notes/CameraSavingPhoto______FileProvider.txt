@@ -1,0 +1,92 @@
+::::::::::::::::::::::::::::::MainActiivty:::::::::::::::::::::::::::::::
+
+ private void dispatchTakePictureIntent() throws IOException {
+
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                Log.d("sdfsijf","Error occurred while creating the File");
+                return;
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(Activity_1.this,
+                        BuildConfig.APPLICATION_ID +".provider",photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
+        }
+
+    }
+
+
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+
+       Log.d("sdfihasfk",Environment.getExternalStoragePublicDirectory("Appvn").toString()) ;
+        File storageDir = new File("/storage/emulated/0/MOVIES");       
+        // Give any path you want , just make sure that THAT FOLDER must exist..  
+        // Access (parent folder or same folder)is given in file_path.xml file.
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        return image;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
+            // Show the thumbnail on ImageView
+            Uri imageUri = Uri.parse(mCurrentPhotoPath);
+           // ScanFile so it will be appeared on Gallery
+            MediaScannerConnection.scanFile(Activity_1.this,
+                    new String[]{imageUri.getPath()}, null,
+                    new MediaScannerConnection.OnScanCompletedListener() {
+                        public void onScanCompleted(String path, Uri uri) {
+                        }
+                    });
+        }
+    }
+
+	
+	
+	
+	
+	
+::::::::::::::::::::::::::::::::Manifest:::::::::::::::::::::::::::::::::
+
+</application>
+ <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+</provider>
+</application>
+
+
+::::::::::::::::::::::xml/file_paths.xml:::::::::::::::::::::::::::::::::::::
+
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="my_images" path="." />
+
+</paths>
+

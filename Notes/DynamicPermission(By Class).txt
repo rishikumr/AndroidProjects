@@ -1,0 +1,100 @@
+
+	DynamicPermission dp;
+	dp = new DynamicPermission();
+	PermissionSet();
+
+
+
+ public void PermissionSet(){
+
+     int permissionCheck =dp.permissionCheck(this);
+     Log.d("Tagg",Integer.toString(permissionCheck));
+
+
+     if(permissionCheck==  -1){
+         dp.permissionRequest(this);
+         Log.d("Tagg After updating : ",Integer.toString(permissionCheck));
+
+     }
+
+
+::::::::::::::::::::::::DynamicPermissions:::::::::::::::::::::::::::::::
+
+
+package com.example.rishikumar.learningapp;
+
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+
+
+/**
+ * Created by rishi.kumar on 9/25/2017.
+ */
+
+public class DynamicPermission extends Activity{
+
+    static final Integer LOCATION = 0x1;
+    static final Integer CALL = 0x2;
+    static final Integer WRITE_EXST = 0x3;
+    static final Integer READ_EXST = 0x4;
+    static final Integer CAMERA = 0x5;
+    static final  Integer ACCOUNTS = 0x6;
+
+    public int permissionCheck(Context cn) {
+       return ContextCompat.checkSelfPermission(cn, Manifest.permission.READ_CONTACTS);
+    }
+
+    public void permissionRequest(Context  cn) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) cn,
+                Manifest.permission.READ_CONTACTS)) {
+
+            ActivityCompat.requestPermissions( (Activity)cn,new String[]{Manifest.permission.READ_CONTACTS},ACCOUNTS);
+
+
+        } else {
+
+            // No explanation needed, we can request the permission.
+
+            ActivityCompat.requestPermissions((Activity)cn,new String[]{Manifest.permission.READ_CONTACTS},ACCOUNTS);
+
+            // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+            // app-defined int constant. The callback method gets the
+            // result of the request.
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 0x6: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
+
+
+}
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
