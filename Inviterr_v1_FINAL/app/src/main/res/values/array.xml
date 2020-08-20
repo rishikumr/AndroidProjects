@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="countryCode_Code">
+        <item>+91</item>
+        <item>+1</item>
+        <item>+44</item>
+
+    </string-array>
+
+    <string-array name="countryCode_Names">
+        <item>IND</item>
+        <item>USA</item>
+        <item>UK</item>
+    </string-array>
+</resources>
