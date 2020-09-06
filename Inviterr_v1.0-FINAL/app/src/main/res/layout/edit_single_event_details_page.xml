@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollview_edit_page"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/single_event_full_details_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/imageViewPager_edit_page"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/twentyfive_percentofscreen"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+                android:id="@+id/worm_dots_indicator_edit_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dotsColor="@color/blueish"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="16dp"
+                app:dotsSpacing="4dp"
+                app:dotsStrokeColor="@color/white"
+                app:dotsStrokeWidth="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewPager_edit_page"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewPager_edit_page"
+                app:layout_constraintStart_toStartOf="@+id/imageViewPager_edit_page"
+                app:layout_constraintTop_toTopOf="@+id/imageViewPager_edit_page"
+                app:layout_constraintVertical_bias="0.95" />
+
+            <EditText
+                android:id="@+id/event_name_edit_detail_page"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bold"
+                android:paddingStart="@dimen/Detailed_page_details_StartPadding"
+                android:paddingEnd="@dimen/Detailed_page_details_StartPadding"
+                android:hint="@string/event_name"
+                android:textColor="#000000"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewPager_edit_page" />
+
+            <EditText
+                android:id="@+id/event_location_edit_detail_page"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="@dimen/Detailed_page_details_StartPadding"
+                android:paddingEnd="@dimen/Detailed_page_details_StartPadding"
+                android:hint="@string/location"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/event_name_edit_detail_page" />
+
+            <EditText
+                android:id="@+id/event_date_full_detail_page"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:inputType="date"
+                android:hint="@string/date"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/event_location_edit_detail_page"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/event_location_edit_detail_page"
+                app:layout_constraintTop_toBottomOf="@+id/event_location_edit_detail_page"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:id="@+id/delete_image_edit_detail_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_delete" />
+
+            <EditText
+                android:id="@+id/event_description_edit_detail_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:hint="Please provide the event descriptions."
+                android:minHeight="100dp"
+                android:paddingStart="@dimen/Detailed_page_details_StartPadding"
+                android:paddingEnd="@dimen/Detailed_page_details_StartPadding"
+
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_date_full_detail_page" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:text="Location"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/event_location_edit_detail_page"
+                app:layout_constraintEnd_toStartOf="@+id/event_location_edit_detail_page"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Date"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/event_date_full_detail_page"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/save_edit_details_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/white"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

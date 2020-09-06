@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Inviter</string>
+    <string name="processingLogIn">Please Wait. Logging in.</string>
+    <string name="processingSignUp">Please Wait. Signing up.</string>
+    <string name="processingOTPSend">Please Wait. Sending OTP.</string>
+    <string name="welcomeText">App has started successfully.</string>
+    <string name="password">Password</string>
+    <string name="user_id">Phone Number</string>
+    <string name="log_in">Log In</string>
+    <string name="Not_a_member">You are not a member?</string>
+    <string name="register_here">Register here.</string>
+    <string name="forget_password">Forget password?</string>
+    <string name="hello_there">Hello There!</string>
+    <string name="nice_to_see_you_again">Nice to see you again!</string>
+    <string name="welcome">Welcome !</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="title_activity_user_home_screen">UserHomeScreen</string>
+    <string name="receive_otp">Receive OTP</string>
+    <string name="sign_up_text">Almost there. Set your password. ^_^</string>
+    <string name="sign_up_text_otp">Hello ! Please verify yourself.</string>
+    <string name="event_date">Event Date</string>
+    <string name="event_description">Event Description</string>
+    <string name="event_location">Event Location</string>
+    <string name="event_pictures">Event Pictures</string>
+    <string name="date">Date</string>
+    <string name="location">Location</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back_button_image">Back Button Image</string>
+    <string name="testing">Testing</string>
+    <string name="event_name">Event Name</string>
+
+</resources>
