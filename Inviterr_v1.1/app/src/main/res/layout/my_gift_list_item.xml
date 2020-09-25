@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1sp">
+
+        <TextView
+                android:id="@+id/my_gift_list_item"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="Gift Name"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/remove_Gift"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="8dp"
+        />
+        <ImageView
+                android:id="@+id/remove_Gift"
+                android:layout_width="20dp"
+                android:layout_height="15dp"
+                android:contentDescription="@string/event_pictures"
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@android:drawable/button_onoff_indicator_on"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/my_gift_list_item"
+                app:layout_constraintVertical_bias="0.0"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+
