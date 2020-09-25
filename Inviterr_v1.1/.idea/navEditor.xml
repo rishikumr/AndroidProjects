@@ -8,23 +8,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="editEventFragment">
+                  <entry key="detailEventTabHost">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1470" />
-                            <option name="y" value="85" />
+                            <option name="x" value="1144" />
+                            <option name="y" value="120" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_editEventFragment_to_eventDetailedFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_editEventFragment_to_eventHomeScreenFragment">
+                            <entry key="action_detailEventTabHost_to_editEventDetails">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -34,44 +29,35 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="eventDetailedFragment">
+                  <entry key="editEventDetails">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1084" />
-                            <option name="y" value="-19" />
+                            <option name="x" value="1189" />
+                            <option name="y" value="-249" />
                           </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_eventDetailedFragment_to_editEventFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="eventHomeScreenFragment">
+                  <entry key="homeScreenTabHost">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="810" />
-                            <option name="y" value="-82" />
+                            <option name="x" value="754" />
+                            <option name="y" value="78" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_eventHomeScreenFragment_to_editEventFragment">
+                            <entry key="action_homeScreenTabHost_to_detailEventTabHost">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_eventHomeScreenFragment_to_eventDetailedFragment">
+                            <entry key="action_homeScreenTabHost_to_editEventDetails">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -86,18 +72,13 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="352" />
-                            <option name="y" value="-227" />
+                            <option name="x" value="300" />
+                            <option name="y" value="-213" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_login_fragment_to_eventHomeScreenFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_login_fragment_to_mainFragment">
+                            <entry key="action_login_fragment_to_homeScreenTabHost">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -117,13 +98,13 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="63" />
-                            <option name="y" value="-48" />
+                            <option name="x" value="12" />
+                            <option name="y" value="76" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_mainFragment_to_eventHomeScreenFragment">
+                            <entry key="action_mainFragment_to_homeScreenTabHost">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -138,11 +119,6 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_mainFragment_to_testingFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -153,17 +129,12 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="309" />
-                            <option name="y" value="524" />
+                            <option name="x" value="363" />
+                            <option name="y" value="326" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_requestOTPFragment_to_mainFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                             <entry key="action_requestOTPFragment_to_signUpFragment">
                               <value>
                                 <LayoutPositions />
@@ -179,35 +150,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="606" />
-                            <option name="y" value="262" />
+                            <option name="x" value="553" />
+                            <option name="y" value="325" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_signUpFragment_to_eventHomeScreenFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_signUpFragment_to_requestOTPFragment">
+                            <entry key="action_signUpFragment_to_homeScreenTabHost">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                           </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="testingFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-113" />
-                            <option name="y" value="1524" />
-                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

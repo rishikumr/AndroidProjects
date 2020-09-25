@@ -28,10 +28,7 @@
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         >
-        <activity android:name=".UserHomeScreen"/>
-        <activity android:name=".EditEventDetailsActivity" />
-        <activity android:name=".FullDetailEventActivity" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".ui.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

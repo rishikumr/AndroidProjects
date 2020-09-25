@@ -32,7 +32,6 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-
             </androidx.viewpager2.widget.ViewPager2>
 
             <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
