@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import com.dynasty.myapplication.database.EventRepository;
 import com.dynasty.myapplication.entity.Event;
+import com.dynasty.myapplication.entity.People;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class EventViewModel extends AndroidViewModel {
     private ArrayList<String> giveGifts;
     private ArrayList<String> doNotGiveGifts;
     private ArrayList<String> myGivenGifts;
+    private ArrayList<People> guestInvitationList;
 
     public EventViewModel(@NonNull Application application) {
         super(application);
@@ -67,5 +69,10 @@ public class EventViewModel extends AndroidViewModel {
     public ArrayList<String> getMyGivenGifts(int currEventID) {
         myGivenGifts = mRepository.getMyGivenGifts(currEventID);
         return myGivenGifts;
+    }
+
+    public ArrayList<People> getCurrentGuestInvitationList() {
+        guestInvitationList =  mRepository.getCurrentGuestInvitationList();
+        return guestInvitationList;
     }
 }

@@ -85,6 +85,7 @@ public class AllEventsHomeScreen extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        mViewModel = new ViewModelProvider(this).get(EventViewModel.class);
     }
 
     @Override
@@ -125,7 +126,7 @@ public class AllEventsHomeScreen extends Fragment {
         setDummyData();
 
 
-        mViewModel = new ViewModelProvider(this).get(EventViewModel.class);
+
         mViewModel.getAllEvents().observe(getViewLifecycleOwner(), new Observer<List<Event>>() {
             @Override
             public void onChanged(List<Event> events) {
@@ -140,7 +141,7 @@ public class AllEventsHomeScreen extends Fragment {
                Log.d(TAG, "on Event Clicked  ev.getID()=" + ev.getId()  + "position  ="+ position);
                 Bundle mBundle  = new Bundle();
                 mBundle.putInt(Constants.EXTRA_ID,ev.getId());
-                mBundle.putBoolean(Constants.IS_CREATOR, true);
+                mBundle.putBoolean(Constants.IS_CREATOR, false);
                 navController.navigate(R.id.action_homeScreenTabHost_to_detailEventTabHost, mBundle);
                 updatePosition = position;
                 recyclerView.smoothScrollToPosition(updatePosition);
@@ -163,6 +164,6 @@ public class AllEventsHomeScreen extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        recyclerView.smoothScrollToPosition(updatePosition);
+        //recyclerView.smoothScrollToPosition(updatePosition);
     }
 }

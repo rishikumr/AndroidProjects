@@ -1,9 +1,12 @@
-<resources>
+ <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="input_field_text_size">20sp</dimen>
     <dimen name="Detailed_page_details_StartPadding">10dp</dimen>
     <dimen name="pageMargin">0dp</dimen>
     <dimen name="offset">0dp</dimen>
     <dimen name="twentyfive_percentofscreen">250dp</dimen>
+    <dimen name="_80sdp">80sp</dimen>
+    <dimen name="_3sdp">3dp</dimen>
+    <dimen name="_16sdp">16dp</dimen>
 
 </resources>

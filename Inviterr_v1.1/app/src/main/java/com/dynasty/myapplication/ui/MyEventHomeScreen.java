@@ -139,7 +139,7 @@ public class MyEventHomeScreen extends Fragment {
                 //  Log.d(TAG, "on Event Clicked  ev.getID()=" + ev.getId()  + "position  ="+ position);
                 Bundle mBundle  = new Bundle();
                 mBundle.putInt(Constants.EXTRA_ID,ev.getId());
-                mBundle.putBoolean(Constants.IS_CREATOR, false);
+                mBundle.putBoolean(Constants.IS_CREATOR, true);
                 navController.navigate(R.id.action_homeScreenTabHost_to_detailEventTabHost, mBundle);
                 updatePosition = position;
                 recyclerView.smoothScrollToPosition(updatePosition);

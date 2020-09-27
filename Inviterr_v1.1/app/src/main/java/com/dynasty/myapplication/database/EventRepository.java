@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import com.dynasty.myapplication.database.EventDao;
 import com.dynasty.myapplication.database.EventDataBase;
 import com.dynasty.myapplication.entity.Event;
+import com.dynasty.myapplication.entity.People;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ public class EventRepository {
     private ArrayList<String> giveGifts= new ArrayList<>();
     private ArrayList<String> doNotGiveGifts= new ArrayList<>();
     private ArrayList<String> myGivenGifts= new ArrayList<>();
+    private ArrayList<People> guestInvitationList= new ArrayList<>();
 
 
     // Current selected Event for Data Passing between Frags
@@ -81,6 +83,14 @@ public class EventRepository {
         myGivenGifts.add("Beddddddddddddddddddddddddddddddddddddd");myGivenGifts.add("Dineer");myGivenGifts.add("Towls");myGivenGifts.add("Frame");myGivenGifts.add("Music");myGivenGifts.add("TV");
         return myGivenGifts;
     }
+
+    public ArrayList<People> getCurrentGuestInvitationList() {
+        return guestInvitationList = new People().getDummyPeopleList();
+    }
+
+
+
+
 
 
     private static class insertEventInDBAsyncTask extends AsyncTask<Event ,Void, Void >{

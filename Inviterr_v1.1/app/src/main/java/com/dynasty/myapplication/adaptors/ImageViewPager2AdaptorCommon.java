@@ -83,4 +83,6 @@ public class ImageViewPager2AdaptorCommon extends RecyclerView.Adapter<ImageView
         this.listener = listener;
 
     }
+
+
 }

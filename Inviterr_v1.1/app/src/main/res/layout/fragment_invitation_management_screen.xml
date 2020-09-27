@@ -1,14 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".ui.InvitationManagementScreen">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.InvitationManagementScreen">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
 
-</FrameLayout>
+    <ExpandableListView
+        android:id="@+id/expand_invitation_info"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:divider="#A4C739"
+        android:dividerHeight="0.1dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorRight"
+        android:minHeight="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@+id/invitation_status_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/invitation_status_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expand_invitation_info">
+
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:checked="true"
+            android:gravity="center"
+            android:paddingLeft="@dimen/_16sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingRight="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text="All"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/_16sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingRight="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text="Accepted"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/_16sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingRight="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text="Declined"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/_16sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingRight="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text="Not Responded"
+            android:textColor="@color/black" />
+
+    </RadioGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/invitation_list_rcv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/invitation_status_bar"
+        tools:listitem="@layout/person_invitation_details"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

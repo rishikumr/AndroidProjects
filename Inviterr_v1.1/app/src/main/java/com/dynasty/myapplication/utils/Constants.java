@@ -28,12 +28,14 @@ public class Constants {
     public static final String EXTRA_IMAGE_URIS = "extra_event_image_uris";
     public static final Object APP_NAME = "Inviterr";
     public static final String  APP_DIRECTORY =  Environment.getExternalStorageDirectory() + File.separator + "ImageAttach" + File.separator;
-    public static String  HomeScreen_Tab1_Name = "Invitations";
-    public static String  HomeScreen_Tab2_Name = "My Events";
+    public static String  HomeScreen_Tab1_Name = "My Events";
+    public static String  HomeScreen_Tab2_Name = "Invitations";
     public static String EventDetailScreen_Tab1_Name = "Event";
     public static String EventDetailScreen_Tab2_1_Name = "Gifts";
     public static String EventDetailScreen_Tab2_2_Name = "Invitation";
-    public static String EventDetailScreen_Tab3_Name = "Photos";
+    public static String EventDetailScreen_Tab3_1Name = "Photos";
+    public static String EventDetailScreen_Tab3_2Name = "More Details";
+
     public static String IS_CREATOR = "IsCreator";
     public static String Current_Tab_Position = "current_tab_position";
 

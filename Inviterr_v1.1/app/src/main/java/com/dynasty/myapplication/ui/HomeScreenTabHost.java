@@ -12,8 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dynasty.myapplication.R;
-import com.dynasty.myapplication.adaptors.DetailEvent_TabLayoutVP2Adaptor;
-import com.dynasty.myapplication.adaptors.EventTabLayoutVP2Adaptor;
+import com.dynasty.myapplication.adaptors.HomeScreenTabLayoutVP2Adaptor;
 import com.dynasty.myapplication.utils.Constants;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -30,7 +29,7 @@ public class HomeScreenTabHost extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    EventTabLayoutVP2Adaptor tabLayoutVP2Adaptor;
+    HomeScreenTabLayoutVP2Adaptor tabLayoutVP2Adaptor;
     ViewPager2 viewPager;
 
     // TODO: Rename and change types of parameters
@@ -78,7 +77,7 @@ public class HomeScreenTabHost extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
 
-        EventTabLayoutVP2Adaptor tabLayoutVP2Adaptor  = new EventTabLayoutVP2Adaptor(requireActivity());
+        HomeScreenTabLayoutVP2Adaptor tabLayoutVP2Adaptor  = new HomeScreenTabLayoutVP2Adaptor(requireActivity());
         viewPager = view.findViewById(R.id.viewPager_HomeScreen);
         viewPager.setAdapter(tabLayoutVP2Adaptor);
         TabLayout tabLayout = view.findViewById(R.id.tabLayout_HomeScreen);

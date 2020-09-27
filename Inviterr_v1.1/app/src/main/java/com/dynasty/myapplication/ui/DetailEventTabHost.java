@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import androidx.viewpager2.widget.ViewPager2;
 import com.dynasty.myapplication.R;
 import com.dynasty.myapplication.adaptors.DetailEvent_TabLayoutVP2Adaptor;
-import com.dynasty.myapplication.adaptors.EventTabLayoutVP2Adaptor;
 import com.dynasty.myapplication.utils.Constants;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -92,7 +91,7 @@ public class DetailEventTabHost extends Fragment {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 if(position == 0){  tab.setText(Constants.EventDetailScreen_Tab1_Name); }
                 if(position == 1){  tab.setText(isCreator == false ? Constants.EventDetailScreen_Tab2_1_Name : Constants.EventDetailScreen_Tab2_2_Name );}
-                if(position == 2){  tab.setText(Constants.EventDetailScreen_Tab3_Name); }
+                if(position == 2){   tab.setText(isCreator == false ? Constants.EventDetailScreen_Tab3_1Name : Constants.EventDetailScreen_Tab3_2Name );}
             }
         }).attach();
 

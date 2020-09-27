@@ -15,10 +15,10 @@ public class DetailEvent_TabLayoutVP2Adaptor extends FragmentStateAdapter {
     boolean isCreator;
     int event_ID;
 
-    public DetailEvent_TabLayoutVP2Adaptor(@NonNull FragmentActivity fragmentActivity , boolean isCreator , int event_ID) {
+    public DetailEvent_TabLayoutVP2Adaptor(@NonNull FragmentActivity fragmentActivity, boolean isCreator, int event_ID) {
         super(fragmentActivity);
         this.isCreator = isCreator;
-        this.event_ID= event_ID;
+        this.event_ID = event_ID;
     }
 
 
@@ -30,33 +30,42 @@ public class DetailEvent_TabLayoutVP2Adaptor extends FragmentStateAdapter {
         Bundle args;
         switch (position) {
             case 0:
-                 fragment = new EventInfoScreen();
-                 args = new Bundle();
-                args.putInt(Constants.EXTRA_ID,event_ID);
+                if (isCreator) {
+                    fragment = new EventInfoScreen();
+                } else {
+                    fragment = new EventInfoScreen();
+                }
+                args = new Bundle();
+                args.putInt(Constants.EXTRA_ID, event_ID);
                 args.putInt(Constants.Current_Tab_Position, position);
                 fragment.setArguments(args);
                 return fragment;
             case 1:
-                if(isCreator){
+                if (isCreator) {
                     fragment = new InvitationManagementScreen();
-                    args = new Bundle();
-                    args.putInt(Constants.EXTRA_ID,event_ID);
-                    args.putInt(Constants.Current_Tab_Position, position);
-                    fragment.setArguments(args);
-                }else{
+                } else {
                     fragment = new GiftManagementScreen();
-                    args = new Bundle();
-                    args.putInt(Constants.EXTRA_ID,event_ID);
-                    args.putInt(Constants.Current_Tab_Position, position);
-                    fragment.setArguments(args);
                 }
+                args = new Bundle();
+                args.putInt(Constants.EXTRA_ID, event_ID);
+                args.putInt(Constants.Current_Tab_Position, position);
+                fragment.setArguments(args);
 
                 break;
             case 2:
-                int i = 0;
-                fragment = new EventPhotosCollection();
+                if (isCreator) {
+                    fragment = new EventPhotosCollection();
+                } else {
+                    fragment = new EventPhotosCollection();
+                }
                 args = new Bundle();
-                args.putInt(Constants.EXTRA_ID,event_ID);
+                args.putInt(Constants.EXTRA_ID, event_ID);
+                args.putInt(Constants.Current_Tab_Position, position);
+                fragment.setArguments(args);
+
+
+                args = new Bundle();
+                args.putInt(Constants.EXTRA_ID, event_ID);
                 args.putInt(Constants.Current_Tab_Position, position);
                 fragment.setArguments(args);
                 break;
