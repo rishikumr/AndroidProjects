@@ -28,7 +28,7 @@ public class GiftListAdaptor extends RecyclerView.Adapter<GiftListAdaptor.GiftVi
     @Override
     public GiftViewListHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate( isMyGift ? R.layout.my_gift_list_item :R.layout.gift_list_item , null);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate( isMyGift ? R.layout.my_gift_list_item :R.layout.gift_list_item , parent  , false);
         GiftViewListHolder rcv = new GiftViewListHolder(layoutView);
         return rcv;
     }

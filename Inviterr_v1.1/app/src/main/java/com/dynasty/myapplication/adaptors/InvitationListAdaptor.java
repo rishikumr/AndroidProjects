@@ -25,8 +25,8 @@ public class InvitationListAdaptor extends RecyclerView.Adapter<InvitationListAd
     @NonNull
     @Override
     public InvitationListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate( R.layout.person_invitation_details , null);
-        InvitationListAdaptor.InvitationListHolder rcv = new InvitationListAdaptor.InvitationListHolder(layoutView);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate( R.layout.person_invitation_details ,parent , false);
+        InvitationListHolder rcv = new InvitationListHolder(layoutView);
         return rcv;
     }
 

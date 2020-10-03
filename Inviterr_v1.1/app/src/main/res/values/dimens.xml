@@ -8,5 +8,7 @@
     <dimen name="_80sdp">80sp</dimen>
     <dimen name="_3sdp">3dp</dimen>
     <dimen name="_16sdp">16dp</dimen>
+     <dimen name="_8sdp">8dp</dimen>
+     <dimen name="_30sdp">30dp</dimen>
 
-</resources>
+ </resources>

@@ -10,7 +10,7 @@
     <ExpandableListView
         android:id="@+id/expand_invitation_info"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:divider="#A4C739"
         android:dividerHeight="0.1dp"
@@ -94,20 +94,21 @@
 
     </RadioGroup>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/invitation_list_rcv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/invitation_status_bar"
-        tools:listitem="@layout/person_invitation_details"
-        />
+        tools:listitem="@layout/person_invitation_details">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

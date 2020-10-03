@@ -92,7 +92,7 @@ public class GiftManagementScreen extends Fragment {
 
         RecyclerView recyclerViewGiftGive = (RecyclerView) view.findViewById(R.id.recylView_Gift_Give);
         recyclerViewGiftGive.setHasFixedSize(true);
-        gridLayoutManager1 = new StaggeredGridLayoutManager(Math.min(giveGifts.size(), 4), StaggeredGridLayoutManager.VERTICAL);
+        gridLayoutManager1 = new StaggeredGridLayoutManager(Math.min(giveGifts.size(), 3), StaggeredGridLayoutManager.VERTICAL);
         recyclerViewGiftGive.setLayoutManager(gridLayoutManager1);
         GiftListAdaptor giveGiftAdaptor = new GiftListAdaptor(requireActivity(), giveGifts , false);
         recyclerViewGiftGive.setAdapter(giveGiftAdaptor);
@@ -100,7 +100,7 @@ public class GiftManagementScreen extends Fragment {
 
         RecyclerView recyclerViewGiftDoNotGive = (RecyclerView) view.findViewById(R.id.recylView_Gift_Donot_Give);
         recyclerViewGiftDoNotGive.setHasFixedSize(true);
-        gridLayoutManager2 = new StaggeredGridLayoutManager(Math.min(doNotGiveGifts.size(), 4), StaggeredGridLayoutManager.VERTICAL);
+        gridLayoutManager2 = new StaggeredGridLayoutManager(Math.min(doNotGiveGifts.size(), 3), StaggeredGridLayoutManager.VERTICAL);
         recyclerViewGiftDoNotGive.setLayoutManager(gridLayoutManager2);
         GiftListAdaptor doNotGiftAdaptor = new GiftListAdaptor(requireActivity(), doNotGiveGifts , false);
         recyclerViewGiftDoNotGive.setAdapter(doNotGiftAdaptor);
@@ -109,7 +109,7 @@ public class GiftManagementScreen extends Fragment {
 
         RecyclerView recyclerViewMyGifts = (RecyclerView) view.findViewById(R.id.recyclVew_my_gifts);
         recyclerViewMyGifts.setHasFixedSize(true);
-        gridLayoutManager3= new StaggeredGridLayoutManager(Math.min(myGifts.size(), 3), StaggeredGridLayoutManager.VERTICAL);
+        gridLayoutManager3= new StaggeredGridLayoutManager(Math.min(myGifts.size(), 2), StaggeredGridLayoutManager.VERTICAL);
         recyclerViewMyGifts.setLayoutManager(gridLayoutManager3);
         GiftListAdaptor myGiftAdaptor = new GiftListAdaptor(requireActivity(), myGifts , true);
         recyclerViewMyGifts.setAdapter(myGiftAdaptor);

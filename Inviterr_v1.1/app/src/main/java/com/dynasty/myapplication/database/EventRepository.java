@@ -66,21 +66,25 @@ public class EventRepository {
     public ArrayList<String> getGiveGifts(int id) {
         giveGifts = new ArrayList<>();
 
-        giveGifts.add("Car");giveGifts.add("Bike");giveGifts.add("TVVV");giveGifts.add("Kindleeeeeeeee");
-        giveGifts.add("Car");giveGifts.add("Bike");
+        giveGifts.add("Washing Machine");giveGifts.add("Bike");giveGifts.add("Television");giveGifts.add("Kindle");
+        giveGifts.add("4 wheeler");giveGifts.add("Pet animal");
         return giveGifts;
     }
 
     public ArrayList<String> getEventDoNotGiveGifts(int id) {
         doNotGiveGifts = new ArrayList<>();
-        doNotGiveGifts.add("Cashhhhhhhh" );doNotGiveGifts.add("Radio");doNotGiveGifts.add("Phone");
+        doNotGiveGifts.add("Basket" );doNotGiveGifts.add("Radio");doNotGiveGifts.add("Phone");
+        doNotGiveGifts.add("Photo Album" );doNotGiveGifts.add("Kitchen Set");doNotGiveGifts.add("Mixer");
+        doNotGiveGifts.add("Flowers");
+
+
 
         return doNotGiveGifts;
     }
 
     public ArrayList<String> getMyGivenGifts(int currEventID) {
         myGivenGifts = new ArrayList<>();
-        myGivenGifts.add("Beddddddddddddddddddddddddddddddddddddd");myGivenGifts.add("Dineer");myGivenGifts.add("Towls");myGivenGifts.add("Frame");myGivenGifts.add("Music");myGivenGifts.add("TV");
+        myGivenGifts.add("Cash");myGivenGifts.add("Washing Machine");myGivenGifts.add("Towels");myGivenGifts.add("Tea Set");myGivenGifts.add("Music system");
         return myGivenGifts;
     }
 

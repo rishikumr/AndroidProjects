@@ -95,7 +95,7 @@ public class InvitationManagementScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_invitation_management_screen, container, false);
+        return inflater.inflate(R.layout.fragment_invitation_management_screen, null, false);
     }
 
     @Override
@@ -103,11 +103,11 @@ public class InvitationManagementScreen extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setupExpandableList(view);
         InvitationListAdaptor invitationListAdaptor = new InvitationListAdaptor(guestInvitationList);
-        recyclerView = (RecyclerView) view.findViewById(R.id.invitation_list_rcv);
+        recyclerView = view.findViewById(R.id.invitation_list_rcv);
         recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(invitationListAdaptor);
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(invitationListAdaptor);
 
     }
 
