@@ -23,6 +23,7 @@ public class ImageViewPager2AdaptorCommon extends RecyclerView.Adapter<ImageView
 
     public ImageViewPager2AdaptorCommon(ArrayList<String> imageURIs){
         if(imageURIs.size() ==0){
+            eventImageURIs.clear();
             eventImageURIs.add(Uri.parse(String.valueOf(R.drawable.zero_picture_image)).toString());
         }else{
             eventImageURIs = imageURIs;
@@ -33,7 +34,7 @@ public class ImageViewPager2AdaptorCommon extends RecyclerView.Adapter<ImageView
     public void updateImageURIs(ArrayList<String> imageURIs){
         if(imageURIs.size() ==0){
             eventImageURIs.clear();
-            eventImageURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/zero_picture_image").toString());
+            eventImageURIs.add(Uri.parse(String.valueOf(R.drawable.zero_picture_image)).toString());
         }else{
             eventImageURIs = imageURIs;
         }
@@ -83,6 +84,7 @@ public class ImageViewPager2AdaptorCommon extends RecyclerView.Adapter<ImageView
         this.listener = listener;
 
     }
+
 
 
 }

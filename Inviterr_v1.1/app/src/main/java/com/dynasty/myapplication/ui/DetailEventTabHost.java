@@ -96,4 +96,6 @@ public class DetailEventTabHost extends Fragment {
         }).attach();
 
     }
+
+
 }

@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.TextView;
 
 import com.dynasty.myapplication.utils.Constants;
@@ -132,10 +133,17 @@ public class EventInfoScreen extends Fragment implements View.OnClickListener {
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
+
+
         imgAdaptor = new ImageViewPager2AdaptorCommon(event_imageURIs);
         viewPage = view.findViewById(R.id.imageViewPager_detailed_page);
         viewPage = view.findViewById(R.id.imageViewPager_detailed_page);
         viewPage.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+
+        ViewParent parent = (ViewParent) viewPage;
+        // or get a reference to the ViewPager and cast it to ViewParent
+        parent.requestDisallowInterceptTouchEvent(false);
+
         viewPage.setAdapter(imgAdaptor);
         viewPage.setOffscreenPageLimit(3);
         wormDotsIndicator.setViewPager2(viewPage);
@@ -157,6 +165,17 @@ public class EventInfoScreen extends Fragment implements View.OnClickListener {
                 }
             }
         });
+
+        viewPage.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                Log.d(TAG, "onPageSelected : position" + position + "   "+ event_imageURIs.size());
+
+            }
+        });
+
+
 
         editEventButton.setOnClickListener(this);
         deleteEventButton.setOnClickListener(this);
@@ -201,4 +220,6 @@ public class EventInfoScreen extends Fragment implements View.OnClickListener {
         }
 
     }
+
+
 }

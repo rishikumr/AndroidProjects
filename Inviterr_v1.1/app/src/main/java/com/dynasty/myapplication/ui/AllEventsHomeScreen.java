@@ -152,12 +152,12 @@ public class AllEventsHomeScreen extends Fragment {
     }
 
     private void setDummyData() {
-        dummyEventsList.add(new Event("Conference Meeting", "10-05-2020",  "Delhi", "Please don't forget to attend this high level meting you have to be in.\n Please mark your availability \n Please don't forget to attend this high level meting you have to be in.\n Please mark your availability \n \n \n\n \n\n\n\n\n Thank you.", Constants.getDummyEventImages3(), new People().getDummyPeopleList()));
-        dummyEventsList.add(new Event("Celebration Meeting", "11-05-2020",  "Mumbai", "Come together on this joyous occasion ", Constants.getDummyEventImages1() ,  new People().getDummyPeopleList()));
-        dummyEventsList.add(new Event("Birthday Celebration", "12-05-2020", "Bangalore", "Hey ! It is my birthday celebration party. \n Come join us and celebrate together", Constants.getDummyEventImages2(),new People().getDummyPeopleList()));
+        dummyEventsList.add(new Event("Conference Meeting", "10-05-2020",  "Delhi", "Please don't forget to attend this high level meting you have to be in.\n Please mark your availability \n Please don't forget to attend this high level meting you have to be in.\n Please mark your availability \n \n \n\n \n\n\n\n\n Thank you.", Constants.getDummyEventImages1(), new People().getDummyPeopleList()));
+        dummyEventsList.add(new Event("Celebration Meeting", "11-05-2020",  "Mumbai", "Come together on this joyous occasion ", Constants.getDummyEventImages2() ,  new People().getDummyPeopleList()));
+        dummyEventsList.add(new Event("Birthday Celebration", "12-05-2020", "Bangalore", "Hey ! It is my birthday celebration party. \n Come join us and celebrate together", Constants.getDummyEventImages3(),new People().getDummyPeopleList()));
+        dummyEventsList.add(new Event("Family dinner", "13-05-2020",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages1(), new People().getDummyPeopleList()));
         dummyEventsList.add(new Event("Family dinner", "13-05-2020",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages3(), new People().getDummyPeopleList()));
-        dummyEventsList.add(new Event("Family dinner", "13-05-2020",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages3(), new People().getDummyPeopleList()));
-        dummyEventsList.add(new Event("Family dinner", "13-05-2020",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages3(), new People().getDummyPeopleList()));
+        dummyEventsList.add(new Event("Family dinner", "13-05-2020",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages2(), new People().getDummyPeopleList()));
 
     }
 

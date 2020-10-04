@@ -27,21 +27,18 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/adaptors/GiftListAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/adaptors/GiftListAdaptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/adaptors/InvitationListAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/adaptors/InvitationListAdaptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/database/EventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/database/EventRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/GiftManagementScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/GiftManagementScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/InvitationManagementScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/InvitationManagementScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_event_home_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_event_home_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_gift_managment_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_gift_managment_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_invitation_management_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_invitation_management_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/gift_list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/gift_list_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/my_gift_list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/my_gift_list_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/person_invitation_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/person_invitation_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/adaptors/ImageViewPager2AdaptorCommon.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/adaptors/ImageViewPager2AdaptorCommon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/AllEventsHomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/AllEventsHomeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/DetailEventTabHost.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/DetailEventTabHost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/EditEventDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/EditEventDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/EventInfoScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dynasty/myapplication/ui/EventInfoScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ev4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/single_event_full_details_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/single_event_full_details_page.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +93,7 @@
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="LMG810EAWbbfbf1c8" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-08-24T14:22:19.484Z" />
-    <property name="ResourceManagerPrefKey.ResourceType" value="LAYOUT" />
+    <property name="ResourceManagerPrefKey.ResourceType" value="COLOR" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
@@ -320,10 +317,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="305" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596384300658" />
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1601224631752">
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1601834516764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1601224631752" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1601834516764" />
     <state x="582" y="241" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1599316360391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -372,22 +369,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="218" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599992829038" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1601743729519">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1601795298241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601743729519" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1601743729519">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601795298241" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1601795298241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601743729519" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1601743729519">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601795298241" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1601795298241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601743729519" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1601743729519">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601795298241" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1601795298241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601743729519" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601795298241" />
     <state x="255" y="65" width="1244" height="883" key="SettingsEditor" timestamp="1601065040020">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

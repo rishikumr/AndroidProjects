@@ -152,8 +152,7 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
 
         //Worm image indicator
         wormDotsIndicator = (WormDotsIndicator) view.findViewById(R.id.worm_dots_indicator_edit_page);
-        event_imageURIs.add("android.resource://com.dynasty.myapplication/drawable/add_image_picture");
-
+        event_imageURIs.add(Uri.parse(String.valueOf(R.drawable.add_picture_image)).toString());
         imgAdaptor = new ImageViewPager2AdaptorCommon(event_imageURIs);
         viewPage = view.findViewById(R.id.imageViewPager_edit_page);
         viewPage.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
@@ -250,6 +249,7 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
                 else {
                     saveCurrentEventDetails();
                     mViewModel.updateEvent(curr_Event);
+                    event_imageURIs.remove("android.resource://com.dynasty.myapplication/drawable/add_image_picture");
                     Toast.makeText(requireActivity(), "Event saved.", Toast.LENGTH_SHORT).show();
                 }
                 navController.popBackStack();
