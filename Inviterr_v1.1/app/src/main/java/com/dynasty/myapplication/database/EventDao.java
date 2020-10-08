@@ -13,7 +13,7 @@ import java.util.List;
 
 @Dao
 public interface EventDao {
-
+    String SELF = "SELF";
     @Insert()
     void insert(Event ev);
 
@@ -26,12 +26,16 @@ public interface EventDao {
     @Query("DELETE FROM events_table")
     void deleteAllEvents();
 
-    @Query("SELECT * FROM events_table ORDER BY id  DESC")
-    LiveData<List<Event>> getAllEvents();
-
     @Query("SELECT * FROM events_table WHERE id=:id ")
     LiveData<List<Event>> getImageURIs(int id);
 
     @Query("SELECT * FROM events_table WHERE id=:id ")
     LiveData<Event> getEvent(int id);
+
+    @Query("SELECT * FROM events_table WHERE event_creator!= 'SELF'  ORDER BY id  DESC")
+    LiveData<List<Event>> getAllInvitation();
+
+    @Query("SELECT * FROM events_table WHERE event_creator== 'SELF' ORDER BY id  DESC")
+    LiveData<List<Event>> getAllMyEvents();
+
 }

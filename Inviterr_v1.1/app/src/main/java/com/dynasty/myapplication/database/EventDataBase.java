@@ -50,7 +50,10 @@ public abstract class EventDataBase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             Log.d(Constants.LOG_TAG, "doInBackground:  Preparing dummy List");
-            mDao.insert(new Event("Conference Meeting", "10-05-2020", "Delhi", "Please don't forget to attend this high level meting you have to be in.\nPlease mark your availability",Constants.getDummyEventImages1() ,new People().getDummyPeopleList()));
+            mDao.insert(new Event("Conference Meeting", "SELF" , "10-05-2020", "Delhi", "Please don't forget to attend this high level meting you have to be in.\nPlease mark your availability",Constants.getDummyEventImages1() ,new People().getDummyPeopleList()));
+            mDao.insert( new Event("Birthday Celebration", "Sam", "12-05-2022", "Bangalore", "Hey ! It is my birthday celebration party. \n Come join us and celebrate together", Constants.getDummyEventImages3(),new People().getDummyPeopleList()));
+            mDao.insert(new Event("Celebration Meeting", "SELF", "11-05-2022",  "Mumbai", "Come together on this joyous occasion ", Constants.getDummyEventImages2() ,  new People().getDummyPeopleList()));
+            mDao.insert(new Event("Family dinner", "Pam", "13-05-2020",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages3(), new People().getDummyPeopleList()));
             return null;
         }
     }

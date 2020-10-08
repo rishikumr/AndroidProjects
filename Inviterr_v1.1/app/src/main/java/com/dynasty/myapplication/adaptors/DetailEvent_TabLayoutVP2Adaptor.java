@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.dynasty.myapplication.ui.*;
+import com.dynasty.myapplication.ui.FirstScreen.EventInfoScreen;
 import com.dynasty.myapplication.utils.Constants;
 
 public class DetailEvent_TabLayoutVP2Adaptor extends FragmentStateAdapter {

@@ -43,8 +43,7 @@ import java.util.concurrent.ExecutionException;
  */
 public class EditEventDetails extends Fragment implements Imageutils.ImageAttachmentListener, View.OnClickListener {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     public static final String TAG = Constants.LOG_TAG;
@@ -61,7 +60,6 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
     private EventViewModel mViewModel;
     private NavController navController;
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -77,7 +75,7 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
      * @param param2 Parameter 2.
      * @return A new instance of fragment EditEventFragment.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static EditEventDetails newInstance(String param1, String param2) {
         EditEventDetails fragment = new EditEventDetails();
         Bundle args = new Bundle();
@@ -132,7 +130,8 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
                         edit_event_date.setText(curr_Event.getEvent_date());
                         edit_event_description.setText(curr_Event.getEvent_description());
                         event_imageURIs = (curr_Event.getEvent_imgURIs());
-                        imgAdaptor.updateImageURIs(curr_Event.getEvent_imgURIs());
+                        if(!event_imageURIs.isEmpty()){event_imageURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/add_picture_image").toString());}
+                        mutable_event_imageURIs.setValue(event_imageURIs);
                     }
                 }
             });
@@ -143,6 +142,7 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
         mutable_event_imageURIs.observe(getViewLifecycleOwner(), new Observer<ArrayList<String>>() {
             @Override
             public void onChanged(ArrayList<String> strings) {
+                Log.d(TAG, "updateImageURIs: "  + strings.size());
                 imgAdaptor.updateImageURIs(strings);
             }
         });
@@ -152,7 +152,8 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
 
         //Worm image indicator
         wormDotsIndicator = (WormDotsIndicator) view.findViewById(R.id.worm_dots_indicator_edit_page);
-        event_imageURIs.add(Uri.parse(String.valueOf(R.drawable.add_picture_image)).toString());
+        Log.d(TAG, "updateImageURIs:  event_imageURIs = "  + event_imageURIs.size());
+
         imgAdaptor = new ImageViewPager2AdaptorCommon(event_imageURIs);
         viewPage = view.findViewById(R.id.imageViewPager_edit_page);
         viewPage.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
@@ -163,6 +164,20 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
         wormDotsIndicator.setViewPager2(viewPage);
         final float pageMargin = getResources().getDimensionPixelOffset(R.dimen.pageMargin);
         final float pageOffset = getResources().getDimensionPixelOffset(R.dimen.offset);
+
+
+        viewPage.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                // Log.d(TAG, "onPageSelected : position" + position + "   "+ event_imageURIs.size());
+                if(position == event_imageURIs.size()-1){
+                    deleteImage.setVisibility(View.INVISIBLE);
+                }else if(deleteImage.getVisibility() == View.INVISIBLE){
+                    deleteImage.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         viewPage.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
@@ -179,20 +194,6 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
                 }
             }
         });
-
-        viewPage.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                // Log.d(TAG, "onPageSelected : position" + position + "   "+ event_imageURIs.size());
-                if(position == event_imageURIs.size()-1){
-                    deleteImage.setVisibility(View.INVISIBLE);
-                }else if(deleteImage.getVisibility() == View.INVISIBLE){
-                    deleteImage.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
 
         imgAdaptor.setOnEventClickListener(new ImageViewPager2AdaptorCommon.OnEventClickListener() {
             @Override
@@ -242,14 +243,16 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
                 // Save Item details
                 if(curr_Event == null) {
                     curr_Event = new Event();
+                    event_imageURIs.remove(Uri.parse("android.resource://com.dynasty.myapplication/drawable/add_picture_image").toString());
                     saveCurrentEventDetails();
                     mViewModel.insertEvent(curr_Event);
                     Toast.makeText(requireActivity(), "Event Created.", Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    //event_imageURIs.remove("android.resource://com.dynasty.myapplication/drawable/add_picture_image");
+                    event_imageURIs.remove(Uri.parse("android.resource://com.dynasty.myapplication/drawable/add_picture_image").toString());
                     saveCurrentEventDetails();
                     mViewModel.updateEvent(curr_Event);
-                    event_imageURIs.remove("android.resource://com.dynasty.myapplication/drawable/add_image_picture");
                     Toast.makeText(requireActivity(), "Event saved.", Toast.LENGTH_SHORT).show();
                 }
                 navController.popBackStack();

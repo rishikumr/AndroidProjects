@@ -1,0 +1,76 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "ccb263563d1a35e3b453ea5dd9aa9b8a",
+    "entities": [
+      {
+        "tableName": "events_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `event_name` TEXT, `event_date` TEXT, `event_location` TEXT, `event_description` TEXT, `event_creator` TEXT, `event_imgURIs` TEXT, `event_invitingList` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "event_name",
+            "columnName": "event_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "event_date",
+            "columnName": "event_date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "event_location",
+            "columnName": "event_location",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "event_description",
+            "columnName": "event_description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "event_creator",
+            "columnName": "event_creator",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "event_imgURIs",
+            "columnName": "event_imgURIs",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "event_invitingList",
+            "columnName": "event_invitingList",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ccb263563d1a35e3b453ea5dd9aa9b8a')"
+    ]
+  }
+}

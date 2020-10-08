@@ -2,13 +2,16 @@
 <resources>
     <color name="grey">#253A4B</color>
     <color name="light_grey">#E8EBEC</color>
-    <color name="blueish">#72D7EA</color>
+    <color name="PrimaryColor">#f9a825</color>
+    <color name="PrimaryColorDark">#f9a825</color>
+    <color name="ColorAccent">#f9a825</color>
     <color name="white">#FFFFFF</color>
+    <color name="littleWhite">#EAEAEA</color>
     <color name="black">#000000</color>
 
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="color1">#008577</color>
+    <color name="color2">#00574B</color>
+    <color name="color3">#D81B60</color>
     <color name="red_100">#F44336</color>
     <color name="red_300">#3F51B5</color>
     <color name="red_500">#9C27B0</color>
@@ -21,4 +24,13 @@
     <color name="green_300">#57BB8A</color>
     <color name="green_500">#673AB7</color>
     <color name="green_700">#0B8043</color>
+
+
+    <color name="mintColorPrimary">#76be2f</color>
+    <color name="mintColorPrimaryDark">#289b23</color>
+    <color name="mintColorAccent">#f9a825</color>
+    <color name="mintPrimaryText">#424242</color>
+    <color name="mintButtonNormal">#76be2f</color>
+    <color name="mintButtonHighlight">#81c784</color>
+    <color name="mintButtonText">#FFFFFF</color>
 </resources>

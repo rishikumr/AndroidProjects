@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -30,9 +31,9 @@ import java.util.List;
  * Use the {@link MyEventHomeScreen#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MyEventHomeScreen extends Fragment {
+public class MyEventHomeScreen extends Fragment implements  View.OnClickListener{
 
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -40,7 +41,9 @@ public class MyEventHomeScreen extends Fragment {
     public static final String TAG = Constants.LOG_TAG;
     private EventViewModel mViewModel;
     private List<Event> allEvents = new ArrayList<>();
+    private List<Event> myAllEventsList = new ArrayList<>();
     private List<Event> dummyEventsList = new ArrayList<>();
+    SwitchCompat pastEventsFilter, futureEventsFilter;
     FloatingActionButton addButton;
     EventScrollViewAdaptor adaptor;
     int i =0 , updatePosition =0;
@@ -49,7 +52,7 @@ public class MyEventHomeScreen extends Fragment {
 
 
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
 
@@ -65,7 +68,7 @@ public class MyEventHomeScreen extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment MyEventHomeScreen.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static MyEventHomeScreen newInstance(String param1, String param2) {
         MyEventHomeScreen fragment = new MyEventHomeScreen();
         Bundle args = new Bundle();
@@ -96,9 +99,12 @@ public class MyEventHomeScreen extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
-        Log.d(TAG, "onViewCreated: EventHomeScreen");
+        pastEventsFilter = view.findViewById(R.id.pastEventsFilter);
+        futureEventsFilter = view.findViewById(R.id.futureEventsFilter);
+        pastEventsFilter.setOnClickListener(this);
+        futureEventsFilter.setOnClickListener(this);
+
         addButton = view.findViewById(R.id.floatingAddButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,11 +131,12 @@ public class MyEventHomeScreen extends Fragment {
 
 
         mViewModel = new ViewModelProvider(this).get(EventViewModel.class);
-        mViewModel.getAllEvents().observe(getViewLifecycleOwner(), new Observer<List<Event>>() {
+        mViewModel.getAllMyEvents().observe(getViewLifecycleOwner(), new Observer<List<Event>>() {
             @Override
             public void onChanged(List<Event> events) {
                 Log.d(TAG, "onChanged: getAllEvents()" + events.size() + "   updatePosition"+ updatePosition);
-                adaptor.submitList(events);
+                myAllEventsList = events;
+                adaptor.submitFilteredList(events , pastEventsFilter.isChecked() , futureEventsFilter.isChecked());
                 recyclerView.smoothScrollToPosition(updatePosition);
             }
         });
@@ -150,12 +157,12 @@ public class MyEventHomeScreen extends Fragment {
     }
 
     private void setDummyData() {
-        dummyEventsList.add(new Event("Conference Meeting", "10-05-2020",  "Delhi", "Please don't forget to attend this high level meting you have to be in.\n Please mark your availability \n Please don't forget to attend this high level meting you have to be in.\n Please mark your availability \n \n \n\n \n\n\n\n\n Thank you.", Constants.getDummyEventImages3(), new People().getDummyPeopleList()));
-        dummyEventsList.add(new Event("Celebration Meeting", "11-05-2020",  "Mumbai", "Come together on this joyous occasion ", Constants.getDummyEventImages1() ,  new People().getDummyPeopleList()));
-        dummyEventsList.add(new Event("Birthday Celebration", "12-05-2020", "Bangalore", "Hey ! It is my birthday celebration party. \n Come join us and celebrate together", Constants.getDummyEventImages2(),new People().getDummyPeopleList()));
-        dummyEventsList.add(new Event("Family dinner", "13-05-2020",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages3(), new People().getDummyPeopleList()));
-        dummyEventsList.add(new Event("Family dinner", "13-05-2020",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages3(), new People().getDummyPeopleList()));
-        dummyEventsList.add(new Event("Family dinner", "13-05-2020",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages3(), new People().getDummyPeopleList()));
+        dummyEventsList.add(new Event("Family dinner","SELF",  "13-05-2022",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages1(), new People().getDummyPeopleList()));
+        dummyEventsList.add(new Event("Celebration Meeting", "SELF", "11-05-2020",  "Mumbai", "Come together on this joyous occasion ", Constants.getDummyEventImages2() ,  new People().getDummyPeopleList()));
+        dummyEventsList.add(new Event("Conference Meeting","SELF",  "10-05-2022",  "Delhi", "Please don't forget to attend this high level meting you have to be in.\n Please mark your availability \n Please don't forget to attend this high level meting you have to be in.\n Please mark your availability \n \n \n\n \n\n\n\n\n Thank you.", Constants.getDummyEventImages1(), new People().getDummyPeopleList()));
+        dummyEventsList.add(new Event("Family dinner","SELF",  "13-05-2020",  "Hydrabad", "Please join us to have a dinner with all of your loved ones.", Constants.getDummyEventImages2(), new People().getDummyPeopleList()));
+        dummyEventsList.add(new Event("Birthday Celebration", "SELF", "12-05-2022", "Bangalore", "Hey ! It is my birthday celebration party. \n Come join us and celebrate together", Constants.getDummyEventImages3(),new People().getDummyPeopleList()));
+
 
     }
 
@@ -163,5 +170,16 @@ public class MyEventHomeScreen extends Fragment {
     public void onResume() {
         super.onResume();
         recyclerView.smoothScrollToPosition(updatePosition);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.pastEventsFilter :
+            case R.id.futureEventsFilter :
+                adaptor.submitFilteredList(myAllEventsList , pastEventsFilter.isChecked() , futureEventsFilter.isChecked());
+                recyclerView.smoothScrollToPosition(updatePosition);
+                break;
+        }
     }
 }

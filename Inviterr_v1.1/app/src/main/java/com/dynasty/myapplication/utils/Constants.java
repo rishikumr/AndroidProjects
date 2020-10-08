@@ -66,24 +66,23 @@ public class Constants {
         ArrayList<String> dummyImgURIs = new ArrayList<>();
         dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev2").toString());
         dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev3").toString());
-        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev4").toString());
+        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev5").toString());
         return dummyImgURIs;
     }
     public static ArrayList<String> getDummyEventImages2() {
 
         ArrayList<String> dummyImgURIs = new ArrayList<>();
-        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev3").toString());
-        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev4").toString());
-        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev2").toString());
+        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev6").toString());
+        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev7").toString());
+        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev8").toString());
         return dummyImgURIs;
     }
     public static ArrayList<String> getDummyEventImages3() {
 
         ArrayList<String> dummyImgURIs = new ArrayList<>();
-
-        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev4").toString());
-        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev3").toString());
-        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev2").toString());
+        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev5").toString());
+        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev8").toString());
+        dummyImgURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/ev9").toString());
         return dummyImgURIs;
     }
 

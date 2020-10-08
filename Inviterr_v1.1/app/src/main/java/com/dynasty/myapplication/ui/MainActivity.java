@@ -60,4 +60,29 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+
+    /* TODO:
+               Done. 1>  Future and PAST Radio button.
+        2> Creater Event :
+            a. Fix Image Viwer
+            b. Take me to Venue
+            b. Implement Invitation Sytem
+                i. add contact
+                ii. resend reminder icon
+                iii. Sort button functionality
+            c. "More Details" page : Extra details, organized by, Images
+        3> Invitation Event :
+            a. remove add button (Mark as for testing only)
+            b. remove add & delete button. Replace it with Arrow button.. Accept/Decline events.
+            c. Gift Page :
+                i. 1st screen uneditable. Your gifts, People gift, Send, Don't send.
+                ii. 2ns screen editable. and add gifts.
+            d. Images of the event . Add yours.
+        4> bottom navigation , Add Icon
+        4> Pull out refresh
+        5> Side Drawer
+    */
+
+
+
 }

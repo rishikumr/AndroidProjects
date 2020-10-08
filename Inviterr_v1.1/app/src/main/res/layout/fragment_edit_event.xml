@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.EditEventDetails">
 
-    <!-- TODO: Update blank fragment layout -->
+
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -40,7 +40,7 @@
                     android:id="@+id/worm_dots_indicator_edit_page"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:dotsColor="@color/blueish"
+                    app:dotsColor="@color/PrimaryColor"
                     app:dotsCornerRadius="8dp"
                     app:dotsSize="16dp"
                     app:dotsSpacing="4dp"
@@ -151,7 +151,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:background="@color/white"
             android:clickable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

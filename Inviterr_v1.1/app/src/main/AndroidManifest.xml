@@ -22,9 +22,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/person_info"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar"
+        android:theme="@style/Theme.App.Mint"
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         >

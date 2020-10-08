@@ -6,8 +6,6 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 
-import com.dynasty.myapplication.database.EventDao;
-import com.dynasty.myapplication.database.EventDataBase;
 import com.dynasty.myapplication.entity.Event;
 import com.dynasty.myapplication.entity.People;
 
@@ -17,7 +15,8 @@ import java.util.concurrent.ExecutionException;
 
 public class EventRepository {
     private EventDao mEventDao;
-    private LiveData<List<Event>> mAllEvents;
+    private LiveData<List<Event>> mAllMyEvents;
+    private LiveData<List<Event>> mAllInvitations;
     private ArrayList<String> giveGifts= new ArrayList<>();
     private ArrayList<String> doNotGiveGifts= new ArrayList<>();
     private ArrayList<String> myGivenGifts= new ArrayList<>();
@@ -27,10 +26,13 @@ public class EventRepository {
     // Current selected Event for Data Passing between Frags
     private Event currSelectedEvent;
 
+
+
     public EventRepository(Application app) {
         EventDataBase mEventDataBase = EventDataBase.getInstance(app);
         mEventDao = mEventDataBase.EventDao();
-        mAllEvents = mEventDao.getAllEvents();
+        mAllMyEvents = mEventDao.getAllMyEvents();
+        mAllInvitations = mEventDao.getAllInvitation();
     }
 
     public  void insertEvent(Event mEvent){
@@ -53,10 +55,10 @@ public class EventRepository {
         new deleteAllEventsInDBAsyncTask(mEventDao).execute();
     }
 
-    public LiveData<List<Event>> getAllEvents(){
-        return mAllEvents;
+    public LiveData<List<Event>> getAllMyEvents(){
+        return mAllMyEvents;
     }
-
+    public LiveData<List<Event>> getAllInvitations() { return mAllInvitations;    }
 
 
     // Current selected Event for Data Passing between Frags

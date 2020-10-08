@@ -1,6 +1,7 @@
 package com.dynasty.myapplication.adaptors;
 
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,22 +23,16 @@ public class ImageViewPager2AdaptorCommon extends RecyclerView.Adapter<ImageView
     private ImageViewPager2AdaptorCommon.OnEventClickListener listener;
 
     public ImageViewPager2AdaptorCommon(ArrayList<String> imageURIs){
-        if(imageURIs.size() ==0){
-            eventImageURIs.clear();
-            eventImageURIs.add(Uri.parse(String.valueOf(R.drawable.zero_picture_image)).toString());
-        }else{
-            eventImageURIs = imageURIs;
-        }
-
+        eventImageURIs.clear();
+        if(imageURIs == null || imageURIs.isEmpty() ){ eventImageURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/zero_picture_image").toString());}
+        eventImageURIs.addAll(imageURIs);
     }
 
     public void updateImageURIs(ArrayList<String> imageURIs){
-        if(imageURIs.size() ==0){
-            eventImageURIs.clear();
-            eventImageURIs.add(Uri.parse(String.valueOf(R.drawable.zero_picture_image)).toString());
-        }else{
-            eventImageURIs = imageURIs;
-        }
+        eventImageURIs.clear();
+        eventImageURIs.addAll(imageURIs);
+        if(imageURIs == null || imageURIs.isEmpty() ){ eventImageURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/zero_picture_image").toString());}
+        //Log.d(TAG, "updateImageURIs: adaptor "  + "  size "+ eventImageURIs.size());
         notifyDataSetChanged();
     }
 
@@ -50,7 +45,9 @@ public class ImageViewPager2AdaptorCommon extends RecyclerView.Adapter<ImageView
 
     @Override
     public void onBindViewHolder(@NonNull EventImagesPageViewHolder holder, int position) {
+        //Log.d(TAG, "onBindViewHolder: "+ position  + "  size "+ eventImageURIs.size());
             holder.imgView.setImageURI(Uri.parse(eventImageURIs.get(position)));
+
     }
 
     @Override

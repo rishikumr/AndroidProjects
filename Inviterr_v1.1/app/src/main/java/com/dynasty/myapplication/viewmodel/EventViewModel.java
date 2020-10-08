@@ -16,7 +16,8 @@ import java.util.concurrent.ExecutionException;
 
 public class EventViewModel extends AndroidViewModel {
     private EventRepository mRepository;
-    private LiveData<List<Event>> allEvents;
+    private LiveData<List<Event>> allMyEvents;
+    private LiveData<List<Event>> allInvitations;
     private LiveData<Event> mEvent;
     private LiveData<Event> imageURis;
     private ArrayList<String> giveGifts;
@@ -27,7 +28,8 @@ public class EventViewModel extends AndroidViewModel {
     public EventViewModel(@NonNull Application application) {
         super(application);
         mRepository = new EventRepository(application);
-        allEvents = mRepository.getAllEvents();
+        allMyEvents = mRepository.getAllMyEvents();
+        allInvitations = mRepository.getAllInvitations();
 
     }
 
@@ -40,9 +42,10 @@ public class EventViewModel extends AndroidViewModel {
     public void deleteEvent(Event mEvent){
         mRepository.deleteEvent(mEvent);
     }
-    public LiveData<List<Event>> getAllEvents(){
-        return  allEvents;
+    public LiveData<List<Event>> getAllMyEvents(){
+        return  allMyEvents;
     }
+    public LiveData<List<Event>> getAllInvitations(){        return  allInvitations;    }
     public LiveData<Event> getEvent (int id) throws ExecutionException, InterruptedException {  return  mRepository.getEvent(id); }
     public void deleteAllEvents(){
         mRepository.deleteAllEvents();

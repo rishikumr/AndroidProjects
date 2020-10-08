@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/requestOTPFragment"
-        android:name="com.dynasty.myapplication.ui.RequestOTPFragment"
+        android:name="com.dynasty.myapplication.ui.login_signup.RequestOTPFragment"
         android:label="fragment_request_o_t_p"
         tools:layout="@layout/fragment_request_o_t_p" >
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.dynasty.myapplication.ui.SignUpFragment"
+        android:name="com.dynasty.myapplication.ui.login_signup.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <argument
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/login_fragment"
-        android:name="com.dynasty.myapplication.ui.LogInFragment"
+        android:name="com.dynasty.myapplication.ui.login_signup.LogInFragment"
         android:label="login_fragment" >
         <action
             android:id="@+id/action_login_fragment_to_requestOTPFragment"
@@ -51,14 +51,14 @@
                 app:popUpTo="@id/mainFragment" app:popUpToInclusive="true"/>
     </fragment>
     <fragment android:id="@+id/homeScreenTabHost"
-              android:name="com.dynasty.myapplication.ui.HomeScreenTabHost"
+              android:name="com.dynasty.myapplication.ui.tabhost.HomeScreenTabHost"
               android:label="fragment_home_screen_tab_host"
               >
         <action android:id="@+id/action_homeScreenTabHost_to_detailEventTabHost"
                 app:destination="@id/detailEventTabHost"/>
         <action android:id="@+id/action_homeScreenTabHost_to_editEventDetails" app:destination="@id/editEventDetails"/>
     </fragment>
-    <fragment android:id="@+id/detailEventTabHost" android:name="com.dynasty.myapplication.ui.DetailEventTabHost"
+    <fragment android:id="@+id/detailEventTabHost" android:name="com.dynasty.myapplication.ui.tabhost.DetailEventTabHost"
               android:label="DetailEventTabHost">
         <action android:id="@+id/action_detailEventTabHost_to_editEventDetails" app:destination="@id/editEventDetails"/>
     </fragment>
