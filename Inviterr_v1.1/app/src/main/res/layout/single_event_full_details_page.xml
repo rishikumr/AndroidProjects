@@ -7,79 +7,79 @@
     android:layout_height="match_parent">
 
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ImageView
         android:id="@+id/imageScrollView_detailed_page"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/twentyfive_percentofscreen"
+        android:layout_height="0dp"
+        android:src="@drawable/event2"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/single_image_detailed_event">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
-        android:id="@+id/worm_dots_indicator_full_detail_page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:dotsColor="@color/PrimaryColor"
-        app:dotsCornerRadius="8dp"
-        app:dotsSize="16dp"
-        app:dotsSpacing="4dp"
-        app:dotsStrokeColor="@color/white"
-        app:dotsStrokeWidth="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageScrollView_detailed_page"
-        app:layout_constraintEnd_toEndOf="@+id/imageScrollView_detailed_page"
-        app:layout_constraintStart_toStartOf="@+id/imageScrollView_detailed_page"
-        app:layout_constraintTop_toTopOf="@+id/imageScrollView_detailed_page"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
     <TextView
         android:id="@+id/event_name_full_detail_page"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bold"
         android:paddingStart="@dimen/Detailed_page_details_StartPadding"
         android:paddingEnd="@dimen/Detailed_page_details_StartPadding"
-        android:text="@string/event_name"
+        android:hint="@string/event_name"
         android:textColor="#000000"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageScrollView_detailed_page" />
+
+    <TextView
+        android:id="@+id/event_name_full_detail_page2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+
+        android:gravity="start"
+        android:text="Invited By"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/event_name_full_detail_page" />
 
     <TextView
         android:id="@+id/event_location_full_detail_page"
         android:layout_width="0dp"
         android:layout_height="33dp"
-        android:textColor="@color/black"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/regular"
+
         android:gravity="start"
-        android:paddingStart="@dimen/Detailed_page_details_StartPadding"
-        android:paddingEnd="@dimen/Detailed_page_details_StartPadding"
-        android:text="@string/location"
+        android:hint="@string/location"
+        android:textColor="@color/black"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/event_date_full_detail_page"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/event_name_full_detail_page" />
+        app:layout_constraintStart_toEndOf="@+id/event_name_full_detail_page2"
+        app:layout_constraintTop_toBottomOf="@+id/event_name_full_detail_page2" />
 
     <TextView
         android:id="@+id/event_date_full_detail_page"
         android:layout_width="0dp"
         android:layout_height="38dp"
-        android:layout_marginTop="12dp"
         android:fontFamily="@font/regular"
         android:gravity="start|end"
+        android:hint="@string/date"
+
         android:inputType="date"
-        android:paddingStart="@dimen/Detailed_page_details_StartPadding"
-        android:paddingEnd="@dimen/Detailed_page_details_StartPadding"
-        android:text="@string/date"
         android:textColor="@color/black"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/event_description_full_detail_page"
         app:layout_constraintEnd_toEndOf="@+id/event_location_full_detail_page"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/event_location_full_detail_page"
         app:layout_constraintTop_toBottomOf="@+id/event_location_full_detail_page"
         tools:ignore="MissingConstraints" />
@@ -87,16 +87,16 @@
     <TextView
         android:id="@+id/event_description_full_detail_page"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/regular"
-        android:hint="These are the event description"
+
         android:minHeight="100dp"
         android:paddingStart="@dimen/Detailed_page_details_StartPadding"
         android:paddingEnd="@dimen/Detailed_page_details_StartPadding"
-        android:text="@string/event_description"
+        android:hint="@string/event_description"
         android:textColor="@color/black"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_min="50dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,27 +104,31 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="7dp"
         android:text="Location"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/event_location_full_detail_page"
-        app:layout_constraintEnd_toStartOf="@+id/event_location_full_detail_page"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="@+id/event_name_full_detail_page2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/event_name_full_detail_page2" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="10dp"
         android:text="Date"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/event_date_full_detail_page"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/event_description_full_detail_page"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -151,5 +155,52 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <TextView
+        android:id="@+id/event_inviter_full_detail_page"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="start"
+        android:hint="Person Name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/event_location_full_detail_page"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/event_name_full_detail_page2"
+        app:layout_constraintTop_toBottomOf="@+id/event_name_full_detail_page" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        app:barrierDirection="left"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="100dp" />
+
+    <Button
+        android:id="@+id/more_images_full_detail_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circular_layout_style"
+        android:padding="10dp"
+        android:scaleY=".7"
+        android:text="More Images >"
+        android:textScaleX=".8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageScrollView_detailed_page"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

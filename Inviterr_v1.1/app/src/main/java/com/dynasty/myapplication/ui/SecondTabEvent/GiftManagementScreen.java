@@ -1,8 +1,8 @@
-package com.dynasty.myapplication.ui;
+package com.dynasty.myapplication.ui.SecondTabEvent;
 
 import android.os.Bundle;
 import android.widget.EditText;
-import android.widget.ImageButton;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.dynasty.myapplication.R;
 import com.dynasty.myapplication.adaptors.GiftListAdaptor;
-import com.dynasty.myapplication.entity.Event;
 import com.dynasty.myapplication.utils.Constants;
 import com.dynasty.myapplication.viewmodel.EventViewModel;
 

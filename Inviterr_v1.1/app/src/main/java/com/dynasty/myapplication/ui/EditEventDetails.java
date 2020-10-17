@@ -1,13 +1,27 @@
 package com.dynasty.myapplication.ui;
 
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
@@ -17,14 +31,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Toast;
-
+import com.dynasty.myapplication.GoogleMapsActivity;
 import com.dynasty.myapplication.utils.Constants;
 import com.dynasty.myapplication.viewmodel.EventViewModel;
 import com.dynasty.myapplication.adaptors.ImageViewPager2AdaptorCommon;
@@ -47,6 +54,7 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     public static final String TAG = Constants.LOG_TAG;
+    private static final int MAP_PIN_LOCATION_REQUEST_CODE = 1001;
     ViewPager2 viewPage;
     EditText edit_event_name, edit_event_date, edit_event_location, edit_event_description;
     ImageButton deleteImage, save_edit_details;
@@ -56,6 +64,7 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
     private MutableLiveData<ArrayList<String>> mutable_event_imageURIs = new MutableLiveData<>();
     private ArrayList<String> event_imageURIs = new ArrayList<>();
     ImageViewPager2AdaptorCommon imgAdaptor;
+    TextView button_map;
     Event curr_Event;
     private EventViewModel mViewModel;
     private NavController navController;
@@ -104,15 +113,19 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ActionBar ab =((AppCompatActivity)requireActivity()).getSupportActionBar();
+        ab.setTitle("Edit event details");
         edit_event_name = view.findViewById(R.id.event_name_edit_detail_page);
         edit_event_location = view.findViewById(R.id.event_location_edit_detail_page);
         edit_event_date = view.findViewById(R.id.event_date_edit_detail_page);
         edit_event_description = view.findViewById(R.id.event_description_edit_detail_page);
         deleteImage = view.findViewById(R.id.delete_image_edit_detail_page);
         save_edit_details = view.findViewById(R.id.save_edit_details_page);
+        //button_map = view.findViewById(R.id.eventLocation_button_map);
+       // button_map.setOnClickListener(this);
         deleteImage.setOnClickListener(this);
         save_edit_details.setOnClickListener(this);
-        mViewModel = new ViewModelProvider(this).get(EventViewModel.class);
+        mViewModel = new ViewModelProvider(requireActivity()).get(EventViewModel.class);
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
 
         if (getArguments() != null) {
@@ -132,6 +145,7 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
                         event_imageURIs = (curr_Event.getEvent_imgURIs());
                         if(!event_imageURIs.isEmpty()){event_imageURIs.add(Uri.parse("android.resource://com.dynasty.myapplication/drawable/add_picture_image").toString());}
                         mutable_event_imageURIs.setValue(event_imageURIs);
+
                     }
                 }
             });
@@ -206,6 +220,7 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
             }
         });
 
+
     }
 
 
@@ -257,6 +272,13 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
                 }
                 navController.popBackStack();
                 break;
+
+           /* case R.id.eventLocation_button_map :
+                Log.d(TAG, "Map button clicked:" );
+                getMapActivity();
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                break;*/
         }
 
     }
@@ -267,5 +289,20 @@ public class EditEventDetails extends Fragment implements Imageutils.ImageAttach
         curr_Event.setEvent_location( edit_event_location.getText().toString());
         curr_Event.setEvent_description( edit_event_description.getText().toString());
         curr_Event.setEvent_imgURIs( event_imageURIs);
+    }
+
+    private void getMapActivity(){
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (requireActivity().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && requireActivity().checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MAP_PIN_LOCATION_REQUEST_CODE);
+                Log.d(TAG, "Requesting permission");
+                return;
+            }
+        }
+        Log.d(TAG, "permission present ");
+        Intent intent = new Intent(getActivity(), GoogleMapsActivity.class);
+        startActivity(intent);
+
     }
 }

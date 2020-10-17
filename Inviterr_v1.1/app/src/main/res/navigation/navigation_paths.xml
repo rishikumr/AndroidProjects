@@ -54,13 +54,24 @@
               android:name="com.dynasty.myapplication.ui.tabhost.HomeScreenTabHost"
               android:label="fragment_home_screen_tab_host"
               >
-        <action android:id="@+id/action_homeScreenTabHost_to_detailEventTabHost"
-                app:destination="@id/detailEventTabHost"/>
-        <action android:id="@+id/action_homeScreenTabHost_to_editEventDetails" app:destination="@id/editEventDetails"/>
+        <action
+            android:id="@+id/action_homeScreenTabHost_to_detailEventTabHost"
+            app:destination="@id/detailEventTabHost"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homeScreenTabHost" />
+        <action
+            android:id="@+id/action_homeScreenTabHost_to_editEventDetails"
+            app:destination="@id/editEventDetails"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homeScreenTabHost" />
     </fragment>
     <fragment android:id="@+id/detailEventTabHost" android:name="com.dynasty.myapplication.ui.tabhost.DetailEventTabHost"
               android:label="DetailEventTabHost">
-        <action android:id="@+id/action_detailEventTabHost_to_editEventDetails" app:destination="@id/editEventDetails"/>
+        <action
+            android:id="@+id/action_detailEventTabHost_to_editEventDetails"
+            app:destination="@id/editEventDetails"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/detailEventTabHost" />
     </fragment>
     <fragment android:id="@+id/editEventDetails" android:name="com.dynasty.myapplication.ui.EditEventDetails"
               android:label="fragment_edit_event" tools:layout="@layout/fragment_edit_event"/>

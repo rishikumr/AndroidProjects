@@ -1,12 +1,20 @@
-package com.dynasty.myapplication.ui;
+package com.dynasty.myapplication.ui.homescreen;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -49,6 +57,7 @@ public class MyEventHomeScreen extends Fragment implements  View.OnClickListener
     int i =0 , updatePosition =0;
     RecyclerView recyclerView;
     NavController navController;
+    ActionBar ab;
 
 
 
@@ -85,6 +94,8 @@ public class MyEventHomeScreen extends Fragment implements  View.OnClickListener
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        mViewModel = new ViewModelProvider(this).get(EventViewModel.class);
     }
 
 
@@ -93,13 +104,20 @@ public class MyEventHomeScreen extends Fragment implements  View.OnClickListener
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         //Log.d(TAG, "onCreateView: EventHomeScreen");
+        //setHasOptionsMenu(true);
         return inflater.inflate(R.layout.fragment_event_home_screen, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.d(TAG, "onViewCreated: MyEvents");
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+
+       ActionBar ab =((AppCompatActivity)requireActivity()).getSupportActionBar();
+
+
+
         pastEventsFilter = view.findViewById(R.id.pastEventsFilter);
         futureEventsFilter = view.findViewById(R.id.futureEventsFilter);
         pastEventsFilter.setOnClickListener(this);
@@ -134,7 +152,7 @@ public class MyEventHomeScreen extends Fragment implements  View.OnClickListener
         mViewModel.getAllMyEvents().observe(getViewLifecycleOwner(), new Observer<List<Event>>() {
             @Override
             public void onChanged(List<Event> events) {
-                Log.d(TAG, "onChanged: getAllEvents()" + events.size() + "   updatePosition"+ updatePosition);
+                //Log.d(TAG, "onChanged: getAllEvents()" + events.size() + "   updatePosition"+ updatePosition);
                 myAllEventsList = events;
                 adaptor.submitFilteredList(events , pastEventsFilter.isChecked() , futureEventsFilter.isChecked());
                 recyclerView.smoothScrollToPosition(updatePosition);
@@ -147,12 +165,14 @@ public class MyEventHomeScreen extends Fragment implements  View.OnClickListener
                 Bundle mBundle  = new Bundle();
                 mBundle.putInt(Constants.EXTRA_ID,ev.getId());
                 mBundle.putBoolean(Constants.IS_CREATOR, true);
+                mBundle.putString(Constants.EXTRA_NAME, ev.getEvent_name());
                 navController.navigate(R.id.action_homeScreenTabHost_to_detailEventTabHost, mBundle);
                 updatePosition = position;
                 recyclerView.smoothScrollToPosition(updatePosition);
 
             }
         });
+
 
     }
 
@@ -181,5 +201,60 @@ public class MyEventHomeScreen extends Fragment implements  View.OnClickListener
                 recyclerView.smoothScrollToPosition(updatePosition);
                 break;
         }
+    }
+
+  /*  @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu , @NonNull MenuInflater inflater) {
+
+
+        requireActivity().getMenuInflater().inflate(R.menu.menu_home_screen_rcv, menu);
+        MenuItem mSearch = menu.findItem(R.id.menu_event_search);
+
+        Log.d(TAG, "onCreateOptionsMenu: MyEvent " + menu.size() + "  mSearch"+mSearch);
+        SearchView searchView = (SearchView) mSearch.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // adapter.getFilter().filter(newText);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+*/
+    @Override
+    public void onPause() {
+        super.onPause();
+        setHasOptionsMenu(false);
+        Log.d(TAG, "onPause: MyEvent");
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+
+        Log.d(TAG, "onPrepareOptionsMenu: MyEvents " + menu.size());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+           case R.id.menu_sort_by:
+               Toast.makeText(requireActivity(), "This feature will be available soon.", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case android.R.id.home:
+                navController.navigateUp();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
     }
 }

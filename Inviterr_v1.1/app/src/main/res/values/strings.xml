@@ -25,5 +25,6 @@
     <string name="testing">Testing</string>
     <string name="event_name">Event Name</string>
     <string name="event_inviter">Invited By , </string>
+    <string name="title_activity_google_maps">Map</string>
 
 </resources>

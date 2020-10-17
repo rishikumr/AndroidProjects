@@ -1,9 +1,12 @@
-package com.dynasty.myapplication.ui;
+package com.dynasty.myapplication.ui.homescreen;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -15,9 +18,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.dynasty.myapplication.utils.Constants;
 import com.dynasty.myapplication.adaptors.EventScrollViewAdaptor;
@@ -93,6 +100,7 @@ public class AllInvitationHomeScreen extends Fragment implements  View.OnClickLi
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
         mViewModel = new ViewModelProvider(this).get(EventViewModel.class);
     }
 
@@ -101,6 +109,7 @@ public class AllInvitationHomeScreen extends Fragment implements  View.OnClickLi
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         Log.d(TAG, "onCreateView: AllEventHomeScreen");
+        //setHasOptionsMenu(true);
         return inflater.inflate(R.layout.fragment_event_home_screen, container, false);
     }
 
@@ -161,6 +170,8 @@ public class AllInvitationHomeScreen extends Fragment implements  View.OnClickLi
             }
         });
 
+
+
     }
 
     private void setDummyData() {
@@ -189,5 +200,62 @@ public class AllInvitationHomeScreen extends Fragment implements  View.OnClickLi
                 recyclerView.smoothScrollToPosition(updatePosition);
                 break;
         }
+    }
+
+   /* @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu , @NonNull MenuInflater inflater) {
+
+        requireActivity().getMenuInflater().inflate(R.menu.menu_home_screen_rcv, menu);
+        MenuItem mSearch = menu.findItem(R.id.menu_event_search);
+        Log.d(TAG, "onCreateOptionsMenu: AllEvent " + menu.size() + "  mSearch"+mSearch);
+        SearchView searchView = (SearchView) mSearch.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Log.d(TAG, "onQueryTextSubmit: ");
+                // adapter.getFilter().filter(newText);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Log.d(TAG, "onQueryTextChange: ");
+                return false;
+            }
+        });
+
+    }
+*/
+    @Override
+    public void onPause() {
+        super.onPause();
+        setHasOptionsMenu(false);
+        Log.d(TAG, "onPause: AllInvi");
+    }
+    @Override
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+        Log.d(TAG, "onPrepareOptionsMenu: AllInvi " + menu.size());
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                navController.navigateUp();
+                return true;
+           /* case R.id.menu_exit:
+
+                System.exit(0);
+                return true;*/
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+
     }
 }

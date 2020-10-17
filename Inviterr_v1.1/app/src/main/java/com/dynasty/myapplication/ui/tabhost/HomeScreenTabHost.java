@@ -4,12 +4,23 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.ShareActionProvider;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.dynasty.myapplication.R;
 import com.dynasty.myapplication.adaptors.HomeScreenTabLayoutVP2Adaptor;
@@ -31,6 +42,10 @@ public class HomeScreenTabHost extends Fragment {
 
     HomeScreenTabLayoutVP2Adaptor tabLayoutVP2Adaptor;
     ViewPager2 viewPager;
+    NavController navController;
+    ActionBar ab;
+    ShareActionProvider mShareActionProvider;
+
 
     private String mParam1;
     private String mParam2;
@@ -64,12 +79,14 @@ public class HomeScreenTabHost extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.fragment_home_screen_tabhost, container, false);
     }
     @Override
@@ -88,6 +105,50 @@ public class HomeScreenTabHost extends Fragment {
             }
         }).attach();
 
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+
+        ActionBar ab =((AppCompatActivity)requireActivity()).getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(false);
+        //requireActivity().invalidateOptionsMenu();
+        ab.setTitle(R.string.app_name);
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        Log.d(Constants.LOG_TAG, "onCreateOptionsMenu:  MainTabHost " + menu.size());
+        requireActivity().getMenuInflater().inflate(R.menu.menu_main_activity_items, menu);
+        requireActivity().getMenuInflater().inflate(R.menu.menu_home_screen_rcv, menu);
+        }
+
+    @Override
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+        Log.d(Constants.LOG_TAG, "onPrepareOptionsMenu: MainTabHost " + menu.size());
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_exit:
+                requireActivity().finish();
+                System.exit(0);
+                return true;
+
+            case R.id.menu_help:
+                Toast.makeText(requireActivity(), "Lol! There is no help.", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case android.R.id.home:
+                navController.navigateUp();
+                return true;
+
+            case R.id.menu_refresh:
+                Toast.makeText(requireActivity(), "This feature will be available soon.", Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

@@ -5,10 +5,12 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.dynasty.myapplication.database.EventRepository;
 import com.dynasty.myapplication.entity.Event;
 import com.dynasty.myapplication.entity.People;
+import com.dynasty.myapplication.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,8 @@ public class EventViewModel extends AndroidViewModel {
     private EventRepository mRepository;
     private LiveData<List<Event>> allMyEvents;
     private LiveData<List<Event>> allInvitations;
-    private LiveData<Event> mEvent;
+
+    private MutableLiveData<Event> mCurrent_Selected_Event = new MutableLiveData<>();
     private LiveData<Event> imageURis;
     private ArrayList<String> giveGifts;
     private ArrayList<String> doNotGiveGifts;
@@ -30,6 +33,7 @@ public class EventViewModel extends AndroidViewModel {
         mRepository = new EventRepository(application);
         allMyEvents = mRepository.getAllMyEvents();
         allInvitations = mRepository.getAllInvitations();
+        mCurrent_Selected_Event.setValue(new Event("Event Name", "Creator", "01-01-2020", "Location", "You are invited. ", Constants.getDummyEventImages3(),new People().getDummyPeopleList()));
 
     }
 
@@ -78,4 +82,14 @@ public class EventViewModel extends AndroidViewModel {
         guestInvitationList =  mRepository.getCurrentGuestInvitationList();
         return guestInvitationList;
     }
+
+
+    public LiveData<Event> getCurrent_Selected_Event() {
+        return mCurrent_Selected_Event;
+    }
+
+    public void setCurrent_Selected_Event(Event mCurrent_Selected_Event) {
+        this.mCurrent_Selected_Event.setValue(mCurrent_Selected_Event);
+    }
+
 }

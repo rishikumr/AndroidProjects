@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.tabhost.HomeScreenTabHost">
 
+
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout_HomeScreen"
         android:layout_width="0dp"

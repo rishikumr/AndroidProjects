@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.dynasty.myapplication.ui.AllInvitationHomeScreen;
-import com.dynasty.myapplication.ui.MyEventHomeScreen;
+import com.dynasty.myapplication.ui.homescreen.AllInvitationHomeScreen;
+import com.dynasty.myapplication.ui.homescreen.MyEventHomeScreen;
 import com.dynasty.myapplication.utils.Constants;
 
 public class HomeScreenTabLayoutVP2Adaptor extends FragmentStateAdapter {
